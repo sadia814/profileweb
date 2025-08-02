@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sadia's Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="intro">
+    <h1> Hi, I'm Sadia</h1>
+    <p>A frontend developer learning Python. Ask me anything!</p>
+    <button id="open-chat">💬 Talk to My AI</button>
+  </section>
+
+  <div id="chatbox" class="hidden">
+    <div id="chatlog"></div>
+    <input type="text" id="userInput" placeholder="Type your question..." />
+    
+    <!-- ✅ This is your original Send button -->
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script src="chatbot.js"></script>
+</body>
+</html>
