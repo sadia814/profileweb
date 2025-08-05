@@ -3,12 +3,14 @@ document.getElementById("open-chat").addEventListener("click", () => {
 });
 
 // Enable sending message with Enter key
-document.getElementById("userInput").addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    sendMessage();
-  }
-});
+document
+  .getElementById("userInput")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      sendMessage();
+    }
+  });
 
 function appendMessage(sender, message) {
   const chatlog = document.getElementById("chatlog");
@@ -28,12 +30,12 @@ function sendMessage() {
   appendMessage("user", userInput);
   inputField.value = "";
 
-  fetch("http://127.0.0.1:5000/chat", {
+  fetch("/chat", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({ message: userInput })
+    body: JSON.stringify({ message: userInput }),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -41,6 +43,10 @@ function sendMessage() {
       appendMessage("bot", botResponse);
     })
     .catch(() => {
-      appendMessage("bot", "Sorry, the server is not responding. Try again later.");
+      appendMessage(
+        "bot",
+        "Sorry, the server is not responding. Try again later.",
+      );
     });
 }
+
